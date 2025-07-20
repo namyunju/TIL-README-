@@ -94,13 +94,25 @@ Git 로컬과 원격 저장소 왔다갔다
 github 쓰는 방법
 
 나 지금 수정하고 있잖아~~!!
-
+저장을 안해서였다...
 commit 수정 방법??
+
 ---
 
 <details>
-<summary>
-어떻게?
-</summary>
+<summary>이름 </summary>
+내용
 </details>
 
+<details>
+<summary>이름 </summary>
+내용
+</details>
+
+<details>
+<summary>소제목</summary>
+내용
+<details>
+<summary>소제목</summary>
+</details>
+</details>
