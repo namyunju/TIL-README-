@@ -93,8 +93,14 @@ Git 로컬과 원격 저장소 왔다갔다
 
 github 쓰는 방법
 
+나 지금 수정하고 있잖아~~!!
+
 commit 수정 방법??
 ---
 
-
+<details>
+<summary>
+어떻게?
+</summary>
+</details>
 
