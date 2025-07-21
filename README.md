@@ -1,7 +1,7 @@
 # TIL-README-
 TIL (add a README file)
 ---
-2025/07/16
+<details><summary>2025/07/16</summary>
 
 배운 내용:
 CLI 기초문법과  martdown, git 사용법
@@ -85,9 +85,11 @@ git commit -m "커밋 내역" 이렇게 치면 git은 변경 사항을 로컬 �
 
 작업 디렉토리에서 파일을 수정한다. >> git add 파일명 으로 변경사항을 스테이징 영역에 추가하고 >> git commit -m "커밋명" 으로 레포지토리에 커밋하고! >> 리포지토리에 변경 사항을 원격 서버로 푸시하려면 git push origin main !! 
 
+</details>
 
-2025/07/17
-오늘 배운 것
+
+<details><summary>2025/07/17</summary>
+   오늘 배운 것
 
 Git 로컬과 원격 저장소 왔다갔다 
 
@@ -118,6 +120,10 @@ commit 수정 방법??
 </details>
 
 <details><summary>프로그래밍</summary>
+
+</details>
+
+<details><summary> 2025/07/21 </summary>
 
 프로그램: 컴퓨터에게 내리는 명령어 묶음
 프로그래밍의 핵심은 새 연산을 정의하고 조합해 유용한 작업을 수행하는 것!
@@ -342,4 +348,5 @@ python을 왜 배우고 어떤 가치가 있는가 고민하기.
 
 
 
+</details>
 </details>
