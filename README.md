@@ -711,3 +711,59 @@ set는 순서 없고, 중복 허용하지 않음
 
 </details>
 
+<details><summary>추가학습</summary>
+
+<details><summary>얕은 복사와 깊은 복사</summary>
+
+python tutor 을 이용한 시각화
+
+메모리 위치
+
+
+backup_catalog = catalog   할당 
+<img width="781" height="464" alt="image" src="https://github.com/user-attachments/assets/1c86c970-373f-43fe-9b1b-51cb4c879a18" />
+
+그냥 원래 list를 그대로 가져옴 (복사가 아님)
+
+
+
+backup_catalog = catalog.copy()   얕은 복사
+<img width="778" height="546" alt="image" src="https://github.com/user-attachments/assets/0c7be1bd-38c5-43b8-b439-2d4cd187a46a" />
+
+겉의 리스트 껍질만 새로 만들고 내부의 객체 리스트는 기존의 것과 같은 것을 참조함.
+
+즉, 바깥쪽 리스트만 복사되고, 내부 리스트는 원본과 공유함. 
+
+**>> 내부 객체를 변경하면 복사본과 원본 모두에 영향을 미친다.**
+
+backup_catalog = deepcopy(catalog)   깊은 복사
+<img width="773" height="742" alt="image" src="https://github.com/user-attachments/assets/ada8ec57-dde2-444f-a7fc-8c406b0a5eab" />
+
+**겉의 리스트뿐만 아니라 내부에 포함된 모든 객체까지 새로 복사**
+
+**원본과 복사본이 완전히 독립적이고, 내부 객체를 변경해도 서로 영향을 주지 않음.**
+
+</details>
+
+
+<details><summary>List</summary>
+
+```python
+
+list = [1] * 5
+print(list)   # [1, 1, 1, 1, 1]
+
+
+
+
+
+
+
+```
+
+
+
+</details>
+
+
+</details>
