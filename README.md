@@ -1421,13 +1421,79 @@ lambda 매개변수 : 표현식
 
 map(함수, 객체)
 
-c 7 b  안녕하세요 민수님60 1 d d b 25
-
-
-
   
 </details>
 
+
+<details><summary>2025/07/24</summary>
+
+** 모듈과 제어문 조건문 반복문 **
+
+
+모듈을 활용해 필요한 기능을 가져와 효율적 코드 작성!
+
+제어문을 통해 특정 조건에 따라 코드를 실행할 수 있음.
+
+특정 작업 여러 번 반복하도록 지시하여 복잡 문제 쉽게 해결!
+
+
+# 모듈
+
+한 파일로 묶인 변수와 함수의 모음! 특정 기능 하는 코드가 작성된 파이썬 파일.py
+
+우리는 검증된 코드를 이용함. 다른 프로그래머가 작성한 변수나 함수들의 모음을 모듈이라고 함!
+
+예시) math 내장 모듈 
+import math 하고 print(math.pi) print(math.sqrt(4)) 
+
+1. 모듈 활용
+- import 문 활용
+  동일 이름 함수가 여러 모듈에 존재할 때 충돌 방지 . 연산자 >> math.pi math.sqrt()
+- from 문 활용
+  from math import pi, sqrt 하고 print(pi), print(sqrt(4))
+  코드 짧아지지만 비명시적 타 변수나 함수와 겹쳐져서 동작 안될 수 있음.
+
+  마지막에 import 된 것이 유효. from math import * 는 비추
+
+  - as 키워드
+    이름 충돌 해결 from math import sqrt
+    from my_math import sqrt as my_sqrt
+
+    함수 변수명 짧게 import pandas as pd
+    
+
+
+2. 사용자 정의 모듈
+   직접 정의한 모듈 사용 가능
+
+   먼저 my_math.py 라는 모듈을 생성 def add(x,y): return x+y
+
+   같은 위치(동일 폴더 내)에 sample.py 파일 생성하고 my_math 모듈의 add 함수 import 하고 add 함수 호출
+
+   import my_math
+
+   print(my_math.add(1,2))
+   
+
+# 패키지
+
+연관된 모듈들을 하나의 디렉토리에 모아 놓은 것 (코드 꾸러미)
+
+마이패키지 폴더 생성 >> 그 안에 math 폴더와 statistixs 폴더 생성 >> 각 폴더 내부에 my_math.py 와 tool.py 파이썬 파일 생성 후 코드 작성(모듈)
+
+마이패키지 폴더에 sample.py 생성하고 >> from my_package.math import my_math  마이패키지 폴더 안의 math 폴더에서 my_math라는 모듈을 import 한다! from 폴더명 import 파이썬파일 >> print(my_math.add(2,3)) : my_math 파이썬 파일 내에 정의된 함수 add 를 사용
+
+
+패키지 종류는 1. PSL 내부 패키지 파이썬 설치시 자동 설치. 설치없이 import 해서 사용 2.파이썬 외부 패키지 pip로 직접 설치 
+
+라이브러리: 여러 패키지를 포함 
+라이브러리>패키지>모듈
+
+
+
+
+
+</details>
 
 
 <details><summary>2025/07/25 관통프로젝트</summary>
