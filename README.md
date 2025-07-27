@@ -962,7 +962,16 @@ print(list)   # [1, 1, 1, 1, 1]
 
 <details><summary>2025/07/23</summary>
 
+**함수 개념과 여러가지 함수, scope, packing 그리고 람다**
+
+웹 사이트 여러 곳 동일한 신년 인사가 뜬다. 수정하고 싶다. 하나하나 다 들어가서 수정해??
+
+노노 처음에 인사함수를 만들고 그 함수를 필요한 곳마다 사용. 하나만 수정하면 모든 곳에 적용
+
+함수를 쓰면 여러 곳에 `재사용`할 수 있고 `관리`하기 쉽다. 
+
 # 함수
+
 
 함수란! : 특정 작업을 수행하기 위한 `재사용` 가능한 코드 묶음. 
 
@@ -981,13 +990,14 @@ def get_sum(num, num2):
 
 # 이후부터는 함수를 호출하여 결과 출력
 
+result = get_sum(1, 2) 
 
 ```
 
 
-함수 호출. 
+함수 호출: 함수 실행 위해 함수의 이름을 사용해 함수의 코드블록을 실행하는 것
 
-함수 구조
+# 함수 구조
 
 ```python   
 def make_sum(pram1, prma2):   # parameter 1, 2가 INPUT값
@@ -999,19 +1009,35 @@ def make_sum(pram1, prma2):   # parameter 1, 2가 INPUT값
    returm pram1 + pram2      # return value OUTPUT
 ```
 
+def 함수명(매개변수:함수에 전달되는 값):
+   docstring: 설명서
+   함수바디: 함수 실행시 수행되는 코드
+   return 반환값 
+
+함수 사용 시 호출이 필요! 함수명() 이렇게!
+
+필요한 경우, 인자 argument 전달해야 하고 그 인자는 매개변수에 대입됨.
+
+
 - parameter INPUT
 - doctring: 함수에 대한 설명 """ """ 선택적으로 작성 가능. 협업을 위한. 
 - function body: 함수 아래에 들여쓰기 되어있는 코드 블록, 함수가 실행될 때 수행되는 코드를 정의.
 - return value OUTPUT: return 이후에 반환값 명시. return문은 함수의 실행을 종료, 결과를 호출 부분으로 반환함.
-- 함수에 return 문이 없다면 None이 반환됨.
-
-
-겁준다
-첫 번째 허들이래
+- 함수에 return 문이 없다면 None이 반환됨
 
 print() 함수는 반환 값이 없음. return이 없음.
 
+파이썬에서 반환 값이 없는 함수는 기본적으로 None을 반환한다고 간주.
+
+<img width="314" height="251" alt="image" src="https://github.com/user-attachments/assets/fb1be9d4-795e-497b-874f-39ce82ebf6a5" />
+
+함수를 호출했기 때문에 안녕이 출력됨. 함수 자체에서 return이 없기때문에 None이 됨
+
+<img width="358" height="425" alt="image" src="https://github.com/user-attachments/assets/67628285-665d-4cd5-8890-32bacb6b6cfc" />
+
+
 **반환과 출력을 구분해야 함**
+
 print() 함수는 화면에 값을 출력하기만 할 뿐, 반환(return)값이 없음.
 
 ```python
@@ -1022,7 +1048,7 @@ print(return_value)
 
 ```
 
-반환값이 없는 함수를 출력해보면 None이 나옴.
+return 이 없는 함수를 print(함수)해보면 None이 나옴.
 
 반환이란 어떤 값이 있어야 함. 
 
@@ -1044,49 +1070,83 @@ sum = add(a, b)   # a, b는 인자
 
 ```
 
+# 여러 가지 인자
+
 - 인자의 종류 5가지
   위치 인자, 기본 인자 값, 키워드 인자, 임의의 인자 목록, 임의의 키워드 인자 목록
-  - 위치 인자
-    함수 호출 시 인자의 `위치`에 따라 전달되는 인자.
-    반드시 값을 전달 해야 함. 값 안 넣으면 에러 뜸
-  - 기본 인자 값
-    함수 정의에서 매개변수에 기본 값을 할당.
-    함수 호출 시 인자를 전달하지 않으면, 기본값이 매개변수에 할당됨.
-  - 키워드 인자
-    함수 호출 시 인자의 이름과 함께 값을 전달하는 인자.
-    키워드 인자는 위치 인자보다 뒤에 위치해야 함. 아니면 error 뜸.
-  - 임의의 인자 목록 AAL
-    정해지지 않은 개수의 인자를 처리하는 인자
-    함수 정의 시 매개변수 앞에 *를 붙여 사용
-    여러 개의 인자를 tuple로 처리
+
+1. 위치 인자
+ - 함수 호출 시 인자의 `위치`에 따라 전달되는 인자.
+ - 위치인자는 함수 호출 시 반드시 값을 전달 해야 함.
+ - 매개 변수는 2갠데 인자는 한 개, 세 개 넣는 경우 에러 뜸(개수 맞추기)
+
+   
+2. 기본 인자 값
+  - `함수 정의`에서 매개변수에 기본 값을 할당. 위치인자의 연장선?
+
+    def greet(name, age = 30): 
+   
+  - 함수 호출 시 인자를 전달하지 않으면, 기본값이 매개변수에 할당됨.
+  - 인자 전달하면 위치인자 처럼 그냥 할당됨
+  - 이 때는 인자를 덜 넣어도 실행되는 것. 하지만 더 넣으면 에러
+   
+  
+3. 키워드 인자
+  - `함수 호출 시` 인자의 이름과 함께 값을 전달하는 인자.
+  - 특정 매개변수에 값 할당 가능.
+  - 위치인자와 달리 인자 순서 중요X 인자 이름 명시
+    
+    중요: 키워드 인자는 위치 인자보다 뒤에 위치해야 함. 아니면 error 뜸.
+
+   greet(키워드 인자 = 값, 위치인자) 에러
+   
+   greet(위치인자, 키워드 인자 = 값) 가 맞음
+
+   greet(1,2, defaultl = 3, 4,5) 이런 거 안됨.
+
+    
+4. 임의의 인자 목록 AAL
+  - 정해지지 않은 개수의 인자를 처리하는 인자. 위치인자?
+  - `함수 정의` 시 매개변수 앞에 *를 붙여 사용
+  - 여러 개의 인자를 tuple로 처리
 
     ```python
        def cal_sum(*args):
-       print(args)   #(1,100,5000,30)
+       print(args)   #(1,100,5000,30) 이것이 튜플!
        print(type(args))   # class tuple
        cal_sum(1,100,5000,30)
    ```
 
-   - 임의의 키워드 인자 목록
-   정해지지 않은 개수의 키워드 인자를 처리하는 인자.
-   함수 정의 시 매개변수 앞에 **를 붙여 사용
-   여러 개의 인자를 dictionary로 묶어 처리함.
+5.  임의의 키워드 인자 목록
+  - 정해지지 않은 개수의 `키워드 인자`를 처리하는 인자.
+  - `함수 정의` 시 매개변수 앞에 **를 붙여 사용
+   여러 개의 인자를 dictionary로 묶어 처리함. (딕셔너리가 생성!)
 
-   - 함수 인자 권장 작성 순서
-   위치 기본 가변 가변키워드 순서로 하여 혼란 줄임.
+      def print_info(**kargs):
+         print(kargs)
+
+      print_info(name = 'Eve', age =30)
+
+      >>> {'name':'Eve', 'age':30}
+
+   - 함수 정의 시 인자 권장 작성 순서
+   위치 기본값 가변 가변키워드 순서로 하여 혼란 줄임.
    절대적인 규칙 아니고 상황에 따라 유연하게
+
+def func(pos1, pos2, default_arg = 'default', *args, **args):
 
 
 <img width="578" height="416" alt="image" src="https://github.com/user-attachments/assets/adc66a48-ea3e-4970-a751-e5fea7d2d86d" />
 
+<img width="735" height="380" alt="image" src="https://github.com/user-attachments/assets/38768267-2a35-43d5-84b1-7c0107f6f009" />
 
 
 
-**재귀함수**
+# 재귀함수
 
 함수 내부에서 자기 자신을 호출하는 함수.
 
-끝없이 호출하지 않도록 종료 시점을 명시해줘야 함.
+끝없이 호출하지 않도록 종료 시점 base case 을 명시해줘야 함.
 
 재귀함수의 예시 - factorial
 - 자기 자신을 재귀적으로 호출하여 n!을 계산
@@ -1121,9 +1181,13 @@ sum = add(a, b)   # a, b는 인자
 
 자습서랑 라이브러리 레퍼런스 언어 레퍼런스 참고하면 좋다
 
+print len max min sum sorted
+
+<img width="477" height="234" alt="image" src="https://github.com/user-attachments/assets/03fb0472-7197-4ec8-b78d-5373410cfd6c" />
+
 
 # 함수와 scope
----
+
 python의 범위scope
 
 scope란?
@@ -1142,12 +1206,33 @@ global variable(global scope에 정의된 변수)과 local variable(local scope�
 정의하고 어디에서나 쓸 수 있는 함수 >> global scope
 
 
-변수 수명주기
+- 변수 수명주기
+글로벌은 코드 실행시부터 프로그램 종료까지.
+로컬은 함수 호출 시부터 함수실행 끝날때까지.
+
+
+함수 내부 전역 변수 사용
+
+x = 5
+
+def test(): 
+   global x 
+   x = 20
+
+test()
+print(x)  #20
+
+
+global x 으로 x를 글로벌로! 위치가 x=20 보다 아래면 안됨.
 
 
 이름 검색 규칙
 
 LEGB 룰
+
+로컬 인클로즈 글로벌 빌트인 순으로 이름을 찾아나감.
+
+함수 내에서는 바깥 scope 변수에 접근 가능하지만 수정은 불가능
 
 <img width="667" height="276" alt="image" src="https://github.com/user-attachments/assets/b156efef-e9b2-4ab6-ac7d-63485c763098" />
 
@@ -1156,10 +1241,21 @@ enclosed는 f함수 내에 g함수가 있는 경우 f와 g 사이의 영역
 
 안에서 바깥 scope 쪽으로 접근 가능, 반대로는 불가능
 
-예를 들어, sum이라는 내장함수가 있는데 sum = 5 라고 코드를 넣어버리면 sum의 타입이 int가 되어버림
+<img width="228" height="228" alt="image" src="https://github.com/user-attachments/assets/210edc49-0e84-4d1c-bd55-f6c0a7e65e73" />
 
-global에서 찾고 built-in 으로 가기 때문에 sum이라는 내장함수를 이용할 수 없게 됨.
+<img width="441" height="298" alt="image" src="https://github.com/user-attachments/assets/b410a85b-a6f6-4d63-aca5-0de6297f9ea9" />
 
+<img width="344" height="278" alt="image" src="https://github.com/user-attachments/assets/08222bfb-09bf-4c1c-b3ba-86a1aab00d9c" />
+<img width="377" height="305" alt="image" src="https://github.com/user-attachments/assets/20e8af71-f930-499c-811d-d0a9585211c1" />
+
+
+LEGB 룰 예시
+
+sum은 원래 Builtin 인데 sum = 5 라고 코드를 넣어버리면 sum이 Global 에 오게 됨.
+
+이후 sum을 참조 시 global에서 먼저 찾고 built-in 으로 가기 때문에 sum이라는 내장함수를 이용할 수 없게 됨.
+
+그럴 땐 del sum 으로 삭제 하고 다시 이용
 
 
 ```python
@@ -1200,12 +1296,13 @@ print(x, y)              #(G, G)
 
 변수의 스코프를 전역 범위 global 로 지정하기 위해 사용
 
-일반적으로 함수 내에서 전역 변수를 수정하려는 경우에 사용함.ㅏ
+일반적으로 함수 내에서 전역 변수를 수정하려는 경우에 사용함.
 
 num = 0   # 전역 변수
 def increment():
    global num   # num을 전역 변수로 선언
    
+매개변수에는 global 사용 불가능.
 
 # 함수 이름 작성 기본 규칙
 
@@ -1235,6 +1332,7 @@ def increment():
 
 한 변수에 콤마, 로 구분된 값을 넣으면 자동으로 튜플로 처리
 
+
 - *를 활용한 패킹 (함수 매개변수 작성 시)
   남는 위치 인자들을 튜플로 묶기. *를 붙인 매개 변수가 남는 위치 인자들을 모두 모아 하나의 튜플로 만듦.
 
@@ -1245,6 +1343,9 @@ def increment():
 
   **를 붙인 매개변수가 남는 키워드 인자들을 모두 모아 하나의 딕셔너리로 만듦.
 
+<img width="546" height="210" alt="image" src="https://github.com/user-attachments/assets/e632cc43-6f58-43da-bc80-0d0c6c6e6c75" />
+
+
 <img width="841" height="38" alt="image" src="https://github.com/user-attachments/assets/757e9538-3f22-4a75-8254-6a0f577ef7ef" />
 
 위치 인자와 end = ' ' 순서 바꿔보고 이것 저것
@@ -1252,21 +1353,78 @@ def increment():
 
 언패킹: 컬렉션에 담겨 있는 데이터들을 개별 요소로 펼쳐놓는 과정
 
-*을 활용한 
+튜플이라 리스트 등 객체의 요소들을 개별 변수에 할당!
+
+시퀀스 언패킹 또는 다중 할당 이라 부름
+
+packed_values = 1, 2, 3, 4, 5      튜플
+
+a,b,c,d,e = packed_values     다중 할당
+
+print(a,b,c,d,e) 하면 1 2 3 4 5 
+
+
+*활용
+
+def my_func(x,y,z):
+   print(x,y,z)
+
+names = ['a','b','c']
+
+my_func(*names)       a b c
+
+*을 붙여야지만 함수의 개별 위치인자로 할당됨
+
+
+
+**활용 (딕셔너리 넣으면 value만 나옴)
+
+def my_func(x,y,z):
+   print(x,y,z)
+
+dict = {'a':1, 'b':2, 'c':3}
+my_func(**dict) 하면 1 2 3 
+
+
+패킹: 함수 정의 시 def func(*args): 사용. 여러 위치/키워드 인자를 하나의 튜플/딕셔너리 로 받음
+
+호출해서 받은 인자를 튜플이나 딕셔너리로 묶어주는 거
+
+언패킹: 함수 호출 시 func(*리스트,튜플) 사용.  개별 위치 인자 키워드 인자로 전달
+
+호출해서 받은 튜플이나 딕셔너리를 개별로 풀어쓰는 것
 
 
 # 참고
----
+
 - 함수와 반환
 
 파이썬 함수는 언제나! 단 하나의 값(객체)만 반환할 수 있음.
 
 여러 값을 반환하는 경우에도 하나의 튜플로 패킹하여 반환하는 것임.
+<img width="388" height="251" alt="image" src="https://github.com/user-attachments/assets/8334c49d-fb43-4772-98cd-4fe501008241" />
+
+name과 age 두 값을 반환하는 거 같지만 실제로는 하나의 튜플을 반환함.
+
 
 
 - 람다 표현식
 
 익명 함수를 만드는 데 사용되는 표현식. 한 줄로 간단한 함수를 정의 (def같은 거 없이)
+
+구조: lambda 키워드 , 매개변수(표현식임), 표현식(결과값 반환)
+
+<img width="416" height="225" alt="image" src="https://github.com/user-attachments/assets/c0fc5168-1905-4953-b389-1a2c014b6641" />
+<img width="675" height="326" alt="image" src="https://github.com/user-attachments/assets/92567e4b-26f5-49b7-9da1-5203b78ce46b" />
+
+lambda 매개변수 : 표현식
+
+map(함수, 객체)
+
+c 7 b  안녕하세요 민수님60 1 d d b 25
+
+
+
   
 </details>
 
