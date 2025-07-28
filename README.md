@@ -1577,6 +1577,10 @@ OpenWeatherMapAPI
 
 : 각 데이터의 효율적인 저장과 관리를 위한 구조를 나눠 놓은 것. 프로그램의 성능과 효율성 유지보수성에 큰 영향 미치는 개념
 
+객체란? 메모리 주소 + 타입 + 값 (메모리와 구조 측면에서 설명)
+데이터 + 메서드 ( 객체지향 프로그래밍 관점) 
+
+즉 객체는 상태와 행동을 함께 가진 단위!!!!!!
 
 # 메서드
 :클래스 내부에 정의되는 함수 (클래스는 객체를 만들기 위한 설계도)
@@ -1596,15 +1600,22 @@ ex) 'hello'.capitalize()    numbers.append(4)   리스트 추가
 위와 같이 객체(데이터)에게 명령(메서드)를 내림
 
 
-# 시퀀스 데이터 구조
+# 시퀀스 데이터 구조 (문자열과 리스트) 에서의 메서드
 
 1. 문자열
 
 (1) 문자열 조회/탐색 및 검증 메서드
 
-s.find('s') : s의 첫 번째 위치를 반환. 없으면 -1 반환 / s.index('s') find와 유사하나 없을 때 오류
+주의: 문자열이므로 항상 따옴표를 써야 함. 이걸로 실수하지 말자......
 
-s.isupper() s.islower() s.isalpha(): 문자열 내 모든 문자 알파벳인가? 한글도 가능 True 숫자 들어가면 False
+문자열은 불변 객체이므로 항상 메서드가 값을 반환함. 
+
+s.find('s') : s의 첫 번째 `위치인덱스`를 `반환`. 없으면 -1 반환 / s.index('s') find와 유사하나 없을 때 오류
+
+찾아! find하면 있군 ! 인덱스, 없군! -1 // .index() 뭐야! 여기있군 ! 인덱스 반환 뭐야 어딨어! 오류
+
+s.isupper() s.islower() s.isalpha(): 문자열 내 모든 문자 대문자인가?소문자인가? 알파벳인가? (한글도 알파벳) True 숫자 들어가면 False
+
 
 (2) 문자열 조작 메서드(새로운 문자열 반환)
 
@@ -1621,10 +1632,14 @@ s.isupper() s.islower() s.isalpha(): 문자열 내 모든 문자 알파벳인가
 <img width="295" height="249" alt="image" src="https://github.com/user-attachments/assets/f86e5910-40f6-4c5e-9f9c-8da3b49d7119" />
 
 
-'separator'.join(iterable) : iterable(반복 가능) 의 문자열을 연결한 문자열을 반환!
+'separator'.join(iterable) : 구분자(separator)로 iterable(반복 가능) 의 문자열을 연결한 문자열을 반환!
 
-.split(sep = )은 문자열을 구분자 기준으로 나누어 리스트로 반환
-'-'.join(words) 는 이터러블한 words라는 리스트 속 값들을 -로 연결하여 문자열로 반환
+리스트의 각 값 사이사이에 separator 가 들어감. 리스트 값들 사이사이에 뭔가를 넣은 문자열을 만들고 싶을 때 사용 가능
+
+
+'-'.join(words) 는 이터러블한 words라는 리스트 속 값들을 -로 연결하여 문자열로 반환 
+
+그 외 : .capitalize() 가장 첫 대문자로 / .title() 띄어쓰기 기준 각 첫 글자 대문자로, 나머지 소문자로 / .upper() 모두 대문자 .lower 모두 소문자 / .swapcase() 대소문자 서로 변경
 
 
 
@@ -1665,7 +1680,13 @@ for i in 10: 정수 10 안에 포함된 i 같은 건 없음
 
 L.insert(i,x): 리스트의 지정한 인덱스 i 에 항목 x를 삽입 ! (다른 값 그대로 두고 원하는 것만 삽입)
 
+L.remove(x) 리스트에서 첫 번째 x를 제거. 항목 없으면 value error
 
+L.pop() 리스트 가장 오른쪽(마지막) 항목을 `반환` 후 제거
+
+L.pop(i) 리스트 중 인덱스가 i인 항목을 반환 후 제거
+
+L.clear() 리스트 모든 항목 삭제
 
 
 .reverse() : 리스트 순서를 역순으로 변경. 정렬은 아님. (정렬은 오름,내림차순같은 것)
@@ -1675,6 +1696,19 @@ L.insert(i,x): 리스트의 지정한 인덱스 i 에 항목 x를 삽입 ! (다�
 .sort() 원본리스트 오름차순으로 정렬
 my_list.sort() 
 내림차순은 my_list.sort(reverse=True)   reverse 가 내림차순이라 생각하면 될 (할 때마다 반대 정렬이 아니고 그냥 고정)
+
+
+반환값 유무
+<img width="339" height="158" alt="image" src="https://github.com/user-attachments/assets/2fe9251c-d60b-4234-babe-dbc347fddbc0" />
+
+<img width="262" height="179" alt="image" src="https://github.com/user-attachments/assets/8484a2c7-d98a-4a2f-a757-4d8ecefec26f" />
+
+
+
+
+
+
+
 
 
 
