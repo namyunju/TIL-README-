@@ -1567,7 +1567,212 @@ OpenWeatherMapAPI
 </details>
 
 
+<details><summary>2025/07/28</summary>
 
+
+** 데이터 구조와 시퀀스에서의 메서드(문자열, 리스트) 그리 복사 **
+
+
+# 데이터 구조
+
+: 각 데이터의 효율적인 저장과 관리를 위한 구조를 나눠 놓은 것. 프로그램의 성능과 효율성 유지보수성에 큰 영향 미치는 개념
+
+
+# 메서드
+:클래스 내부에 정의되는 함수 (클래스는 객체를 만들기 위한 설계도)
+
+객체: `데이터`와 데이터 처리하는 `기능`(메서드)를 묶은 것
+
+메서드: 객체가 가진 함수(행동) 
+
+데이터 구조마다 고유한 메서드를 가짐. 메서드를 호출하여 다양한 기능 활용하기
+
+
+
+메서드는 객체에 종속된 개념이기 때문에 호출 방법은 : 데이터 타입 객체.메서드() 
+
+ex) 'hello'.capitalize()    numbers.append(4)   리스트 추가
+
+위와 같이 객체(데이터)에게 명령(메서드)를 내림
+
+
+# 시퀀스 데이터 구조
+
+1. 문자열
+
+(1) 문자열 조회/탐색 및 검증 메서드
+
+s.find('s') : s의 첫 번째 위치를 반환. 없으면 -1 반환 / s.index('s') find와 유사하나 없을 때 오류
+
+s.isupper() s.islower() s.isalpha(): 문자열 내 모든 문자 알파벳인가? 한글도 가능 True 숫자 들어가면 False
+
+(2) 문자열 조작 메서드(새로운 문자열 반환)
+
+문자열.replace(old, new[,count]) 앞에서부터 count만큼 바꿈. 안 쓰거나 0이하면 싹 다 바꿈 
+
+(old new 들어가는 건 문자열이므로 항상 따옴표 필요 "")
+
+문자열.strip([chars]): 문자열의 시작과 끝에 있는 공백 혹은 지정한 문자를 제거
+<img width="281" height="246" alt="image" src="https://github.com/user-attachments/assets/35e54cd4-1ee2-4120-add9-3fb67bad3b17" />
+<img width="311" height="257" alt="image" src="https://github.com/user-attachments/assets/d75ec9b2-4f82-4e2b-81e6-00fe1d1f8acd" />
+
+
+문자열.split(sep = None, maxsplit = -1) : sep를 구분자 문자열로 사용하여 문자열에 있는 단어들의 `리스트`를 반환함
+<img width="295" height="249" alt="image" src="https://github.com/user-attachments/assets/f86e5910-40f6-4c5e-9f9c-8da3b49d7119" />
+
+
+'separator'.join(iterable) : iterable(반복 가능) 의 문자열을 연결한 문자열을 반환!
+
+.split(sep = )은 문자열을 구분자 기준으로 나누어 리스트로 반환
+'-'.join(words) 는 이터러블한 words라는 리스트 속 값들을 -로 연결하여 문자열로 반환
+
+
+
+# 리스트 
+
+가변 객체: 리스트, 딕셔너리, 집합과 같이 원본 데이터를 직접 수정 가능
+
+원본을 바꾸는 메서드 반환값이 없다. (새로운 객체를 만들지 않고 자기 자신을 수정하기 때문에)
+
+(함수에서 반환값이 없으면 None을 반환했다. print(print('x')) 처럼. 메서드는 함수의 일종이라 생각)
+
+<img width="342" height="155" alt="image" src="https://github.com/user-attachments/assets/c1af3e7e-401e-429f-8ab3-44f39a36833c" />
+
+my_list는 append()가 호출되어 4를 추가하는 직접 변경! 직접 변경했기 때문에 새로운 리스트를 만들어서 반환하는 것이 아님. >> None을 반환 
+
+하지만 불변 객체에서는 문자열.upper() 같은 건 변경이 불가능하기 때문에 새로운 객체를 만들어서 반환
+<img width="346" height="151" alt="image" src="https://github.com/user-attachments/assets/54ced545-27c2-4ed6-bde4-08fb069153ac" />
+
+
+(1) 리스트 값 추가 및 삭제 메서드
+
+L.append(x): 리스트 마지막에 x 추가 (하나만)
+<img width="271" height="188" alt="image" src="https://github.com/user-attachments/assets/37a7593e-76d6-42e3-ae9a-b27f79983f23" />
+
+L.extend(iterable) : 리스트에 다른 반복 가능한 객체의 모든 항목을 추가! 여러 개 추가 가능
+
+반복가능객체(iterable): 문자열, 리스트 튜플 딕셔너리 집합 range
+
+구분: for i in 객체 가능 여
+
+사용예시: for i in 'strange': ~~
+
+for i in 10: 정수 10 안에 포함된 i 같은 건 없음
+
+
+반복 불가능 객체: 정수, 실수, 불리언, Nonetype 
+
+
+L.insert(i,x): 리스트의 지정한 인덱스 i 에 항목 x를 삽입 ! (다른 값 그대로 두고 원하는 것만 삽입)
+
+
+
+
+.reverse() : 리스트 순서를 역순으로 변경. 정렬은 아님. (정렬은 오름,내림차순같은 것)
+<img width="412" height="218" alt="image" src="https://github.com/user-attachments/assets/3a11f2e8-6055-4b6b-8ae7-a173658da87a" />
+
+
+.sort() 원본리스트 오름차순으로 정렬
+my_list.sort() 
+내림차순은 my_list.sort(reverse=True)   reverse 가 내림차순이라 생각하면 될 (할 때마다 반대 정렬이 아니고 그냥 고정)
+
+
+
+
+# 복사
+
+1. 객체와 참조
+
+** 가변과 불변 구분 ** 
+
+
+- 가변 객체
+  <img width="233" height="342" alt="image" src="https://github.com/user-attachments/assets/ffccd75b-ef6d-4626-98b5-a4a322a380c8" />
+
+리스트에서 b = a는 할당한 것. 복사된 것이 아님. 아예 동일함
+생성 후 내용 변경 가능. 객체 내용 변경 되어도 같은 메모리 주소 유지(새로운 생성이 일어나지 않음)
+<img width="749" height="180" alt="image" src="https://github.com/user-attachments/assets/ff022ac8-16ed-4e7a-9215-98f1561f6614" />
+
+
+- 불변 객체
+<img width="227" height="195" alt="image" src="https://github.com/user-attachments/assets/dca64641-075f-42ca-9108-8922c27dde32" />
+정수는 불변 객체. a가 바뀐다고 b가 바뀌지 않음. 
+생성후 변경 불가. 새로운 값 할당 시 새로운 객체 생성되고 변수는 새 객체를 참조하게 됨.
+<img width="412" height="120" alt="image" src="https://github.com/user-attachments/assets/6675705c-7813-4f5a-aeaf-ee160d1e0c0f" />
+<img width="420" height="138" alt="image" src="https://github.com/user-attachments/assets/ce63ab3c-4c9a-47ff-a383-3e150d5c4f99" />
+
+  
+2. 얕은 복사
+
+객체의 `최상위 요소`만 새로운 메모리에 복사하는 방법. 
+
+내부에 중첩된 객체 있다면 그 객체의 참조만 복사됨. 
+
+얕은 복사의 함정 '가변 객체' 
+
+
+- 얕은 복사 방법
+
+
+
+- 얕은 복사의 한계
+객체의 최상위 요소까지만 복사된다는 말.
+
+리스트 내에 리스트가 있는 경우 그 리스트는 복사된 것이 아니라 동일한 객체를 참조.
+>> 2차원 리스트와 같이 변경 가능 객체 내에 변경 가능 객체가 있는 경우.
+
+따라서 얕은 복사는 1차원 리스트에서만 복사본 생성 가능. 다차원 리스트에선 최상위 리스트만 복사되고 내부는 여전히 원본과 같은 객체를 참조
+
+
+
+
+
+# 깊은 복사
+
+객체의 모든 수준의 요소를 새로운 메모리에 복사하는 방법. 중첩된 객체까지 모두 새로운 객체로 생성
+
+원본 객체와 복사본이 완전히 독립. 영향주지 않음.
+
+- 깊은 복사 방법
+  copy 모듈 이용. deepcopy() 함수를 사용함.
+  import copy 하고 new = copy.deepcopy(original)
+
+
+# 참고 List Comprehension와 method chaining
+
+간결하고 효율적인 리스트 생성 방법! 파이써닉하다~ 파이썬 답게 코드를 작성하는 방법 중 하나
+
+리스트 생성법 3가지
+
+for loop, list comeprehension, map
+
+성능 비교 : 일반적으로 comprehension map for loop 순서로 빠름 그러나 차이 미미 
+  
+따라서 코드의 가독성과 유지보수성을 최우선으로 고려하여 선택하기
+
+
+
+메서드 체이닝 : 여러 메서드를 연속해서 호출하는 방식
+
+앞 메서드에서 반환 값이 없다 None이라면 문제 발생!!!
+
+예시
+
+
+앞 메서드의 반환값이 뒤 메서드가 기능 가능한 타입이어야 함
+
+**메서드 별 반환 유무에 대한 파악**
+
+불변 객체라면 항상 새로운 객체를 생성하므로 메서드 체이닝이 편함.
+
+
+추가 : 문자 유형 판별 메서드
+
+
+
+b b c b b bb b a c
+
+</details>
 
 
 
