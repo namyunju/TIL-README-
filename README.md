@@ -1817,4 +1817,269 @@ sorted(numbers)
 </details>
 
 
+<details><summary>2025/07/29</summary>
+
+**비시퀀스 데이터구조(딕셔너리,세트)의 메서와 해시테이블**
+
+# 딕셔너리
+
+내부적으로 `해시 테이블` 사용하여 키-값 쌍을 관리.
+
+키를 통한 값의 삽입, 삭제, 검색이 데이터의 크기와 관계없이 매우 빠름!
+
+키는 hashable한 고유 값이어야 하지만 값value 는 중복 가능, 어떤 자료형도 저장 가능.
+
+
+딕셔너리 메서드 11가지
+D.get(k) D.get(k,v)   /   D.keys() D.values() D.items()   /   D.pop(k) D.pop(k,v)
+
+D.clear()   D.setdefault(k)   D.setdefault(k,v)   D.update(other)   
+
+D.clear() 과 D.update(other)  이 둘은 딕셔너리 내부를 변경할 뿐 반환이 없음. None
+
+
+1. Dict.get(key)
+   키 값게 연결된 값을 반환. 키 가 없으면 None을 반환함.
+
+   이전에 dict[key] 와 유사. 차이점은 키가 없을 때 얘는 error가 뜸 get은 None을 반환
+
+1-1 Dict.get(key,default) 
+
+default는 선택 가능 ( 키 값이 없을 시 default가 반환됨. default 설정 안하면 None)
+<img width="365" height="169" alt="image" src="https://github.com/user-attachments/assets/2f1ec8e5-cb85-43fa-958c-0437844d5475" />
+
+2. Dict.keys()
+
+딕셔너리 키를 모은 객체를 반환. dict_keys라는 객체를 반환하는데 이는 뷰view객체라고 함.
+
+
+<img width="316" height="263" alt="image" src="https://github.com/user-attachments/assets/e63db909-a496-4838-aefc-d771cbe9e807" />
+아래와 같이 dict_keys type으로 키만 반환
+<img width="300" height="136" alt="image" src="https://github.com/user-attachments/assets/26b43927-0ad4-42f2-a813-b487189dc80e" />
+for 반복문에 이용 가능, set처럼 동작, 실시간 반영 하지만!! 인덱싱은 불가능 
+(이터러블하지만 딕셔너리라 인덱싱은 불가하다.)
+
+
+3. Dict.values()
+
+딕셔너리 값을 모은 객체를 반환
+<img width="301" height="106" alt="image" src="https://github.com/user-attachments/assets/347751fe-aef4-479c-a54e-b8d2e0d5af09" />
+
+4. Dict.items()
+
+딕셔너리 키/값 쌍을 모은 객체를 반환
+
+<img width="507" height="218" alt="image" src="https://github.com/user-attachments/assets/170e8466-7b98-4127-b10e-dee6e0b4f0ff" />
+
+for 문에서 임시변수 두 개 선언하여서 각각 출력
+<img width="284" height="128" alt="image" src="https://github.com/user-attachments/assets/1d14eb2b-d808-4160-82d0-d27cca25e28a" />
+
+임시 변수 하나만 설정 시
+<img width="299" height="156" alt="image" src="https://github.com/user-attachments/assets/0b9efd36-cdb0-4930-a458-1ed3ca3853af" />
+
+
+5. Dict.pop(key [,default])
+
+키를 제거하고 연결됐던 값을 반환. 없으면 에러 default 있으면 default 를 반환
+
+<img width="354" height="261" alt="image" src="https://github.com/user-attachments/assets/b06ec93d-691b-424d-8968-f1ab1a09b2a4" />
+
+6. Dict.clear()
+
+딕셔너리 모든 키 값 쌍을 제거(반환값은 없음.)
+
+<img width="378" height="217" alt="image" src="https://github.com/user-attachments/assets/bb65ffc0-1cd3-4a8c-b79b-031dc765afc9" />
+
+
+
+7. Dict.setdefault(key[,default])
+
+키와 연결된 값을 반환함 .get(key) 와 유사
+
+그런데!! 키가 없는 경우 default와 연결한 키를 딕셔너리에 `추가`하고 default를 반환함.
+
+.get(key) 메서드 + 딕셔너리에 추가
+<img width="379" height="277" alt="image" src="https://github.com/user-attachments/assets/7a33a342-4be1-40c4-b17e-3c2d8cf0274c" />
+
+키가 존재 시 값을 반환, 키가 없을 시 default를 반환하는 동시에 딕셔너리에 키 : default 한 쌍을 추가하게 됨
+
+
+8. Dict.update([other])
+
+other이 제공하는 키/값 쌍으로 딕셔너리를 갱신하고 기존 키는 덮어씀
+
+두 가지 방식
+
+- other 이 딕셔너리인 경우
+  <img width="434" height="164" alt="image" src="https://github.com/user-attachments/assets/cd4c5469-1443-4b68-8ce6-275fe73ed43a" />
+
+
+
+- other 이 키 = 값 형태로 주어진 경우. (key는 따옴표가 없음)
+
+<img width="401" height="132" alt="image" src="https://github.com/user-attachments/assets/fee297d0-a9ea-4f8e-8349-557b5c53a17f" />
+
+
+
+# 세트 Set 
+`고유`한 항목들의 `정렬되지 않은` 컬렉션.
+
+Set는 내부적으로 해시 테이블을 사용하여 데이터를 저장함.
+
+항목의 고유성 효율적 보장, 항목의 추가 삭제 존재 여부 확인 (in 연산)이 데이터 크기 관계 없이 매우 빠름
+
+합집합, 교집합, 차집합 등 수학적 집합 연산을 간편하게 수행 가능
+
+리스트의 중복을 제거하고 싶다면 set로 형 변환 하고 다시 리스트로 형변환 but 순서 보장이 안됨(순서 유지해야하면 못 씀)
+
+
+set의 메서드 6가지
+
+s.add(x) s.update(iterable)   s.clear   s.remove(x)   s.pop()   s.discard(x)
+
+s.pop() 만 반환이 있음.
+
+1. set.add(x)
+set에 x 추가. 이미 있다면 변화 X
+순서가 없기때문에 print시 매번 무작위로 출력
+
+2. set.update(iterable)
+
+set에 다른 iterable 요소를 추가함
+
+<img width="493" height="179" alt="image" src="https://github.com/user-attachments/assets/0754c6cb-b982-44d7-8226-7d6d868998cf" />
+<img width="372" height="158" alt="image" src="https://github.com/user-attachments/assets/79e3e30a-5f26-4f6e-a7b5-501eaafbb904" />
+
+3. set.clear()
+
+모든 항목 제거. print하면 set() 이 출력. {}는 딕셔너리라
+
+4. set.remove(x)
+
+set에서 항목x를 제거. (반환은 없음) x가 없을 경우 keyError 뜸
+
+5. set.pop()
+
+set에서 임의의 요소를 제거하고 반
+
+임의의 != 랜덤(무작위) 
+
+아래 참고에서 더
+
+6. set.discard(x)
+
+세트 s에서 항목 x를 제거. remove와 달리 x가 없어도 에러 없음
+
+상황에 따라 remove와 discard 적절히
+
+
+그 외 set의 집합 메서드와 그에 대응되는 set 연산자
+
+set1.difference(set2) 
+
+set1.intersection(set2)
+
+set1.issubset(set2)
+
+set1.issuperset(set2)
+
+set1.union(set2)
+
+
+# 해시 테이블
+
+해시 테이블: 키와 값을 짝지어 저장하는 자료 구조
+
+ex) 책 찾을 때 
+리스트라면 모든 요소 순회하여서 찾아내야 하는 사고
+딕셔너리로 책 이름(키) 넣으면 위치 알려줌. 그런데,,, 어떻게 키를 한 번에 찾아내지? 
+
+사실 키와 인덱스 사이에는 해시 함수가 있었다!!
+
+키   >    해시함수     >   해시값(위치)
+
+해시함수가 키를 받으면 해시값으로 변환시킴. 
+
+변환된 해시 값을 인덱스로 삼아 데이터를 저장하거나 찾음
+
+이 과정을 통해 검색 삽입 삭제를 매우 빠르게 수행함.
+
+
+**해시**
+해시: 임의의 크기를 가진 데이터를 고정된 크기의 고유한 값으로 변환하는 것 
+
+생성된 해시값(고유한 정수) 는 해당 데이터를 식별하는 지문 역할을 함. 
+
+파이썬은 이 해시값을 이용해 테이블에 데이터를 저장.
+
+이 변환을 수행하는 것이 해시 함수!!
+
+**해시함수**
+
+해시 함수: 임의 길이 데이터를 입력 받아 고정 길이(정수)로 변환해주는 함수. 이 정수가 바로 해시 값
+
+주로 해시 테이블을 구현할 때 매우 빠른 검색 및 데이터 저장 위치 결정을 위해 활용함.
+
+해시 알고리즘이라고도 부름
+
+해시테이블이 매우 빠른이유: 해시 함수는 키를 입력 받아 데이터를 저장하거나 찾을 배열의 '정확한 인덱스'를 계산. 
+마치 책의 제목(키)를 알면 색인(해시함수)를 통해 페이지 번호(인덱스)를 바로 알아내고 해당 페이지(배열 위치)로 곧바로 이동하여 내용을 찾는 것과 같음.
+
+
+
+set의 요소와 dict의 키와 해시테이블 관계
+
+set의 각 요소를 해시 함수로 변환해 나온 해시 값에 맞춰 해시 테이블 내부 버킷에 위치시킴
+
+순서라기보다는 버킷 위치(인덱스)가 요소의 위치를 결정
+
+매 실행마다 해시 함수 결과 달라지고 set 요소 또한 순서를 보장하지 못하게 됨
+
+dict의 key 가 해시함수를 거쳐 해시 값이 나옴. 이 해시값을 해시 테이블에 저장함. 
+
+set과 달리 dict의 삽입 순서는 유지한다는 것이 언어 사양에 따라 보장됨 
+즉 키를 추가한 순서대로 반복문 순회할 때 나오게됨.
+사용자에게 보여지는 키 순서는 삽입 순서가 유지되도록 설계된 것.
+
+둘 다 비시퀀스. 인덱스가 있다는 건 아니다.
+
+
+앞서 set의 pop 메서드 
+
+pop의 순서는 버킷의 순서대로임.
+
+- 숫자로만 이루어진 my_set에서 
+print(my_set.pop()) 을 반복하면 모두 다 동일한 순서대로 정수가 출력됨.
+
+오름 내림처럼 특별한 정렬이 있는 건 아니라 `임의의`라고 표현하지만 각 정수의 버킷 순서가 고정적이라  pop 반환 순서 동일
+
+같은 정수는 항상 같은 해시 값을 가짐. (일정)
+
+문자열과 섞이면 정수는 버킷위치 일정하지만 문자열의 버킷위치가 계속 바뀌게 됨
+
+
+
+- 문자열로 이루어진 my_set
+문자열은 해시 계산 시 파이썬의 해시 난수화가 적용되므로 실행마다 순서가 달라짐.
+
+문자열 해시 시 파이썬 인터프리터 시작 때 설정되는 난수 시드가 달라질 수 있음. 
+보안 위해 난수화 도입. 각 실행마다 달라질 수 있어 'a'의 해시 값도 매번 바뀔 수 있음.
+
+
+
+가변 객체는 hashable 하지 않다.
+
+
+# 파이썬 문법 규격
+
+BNF 프로그래밍 언어 문법 표현 위한 표기법
+
+EBNF BNF 확장. 메타 기호 추가하여 더 간결, 표현력 강해진 형태
+
+메타 기호 : [] 선택 요소 {} 0번 이상 반복 () 그룹
+
+
+
+</details>
+
 
