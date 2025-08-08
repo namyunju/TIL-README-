@@ -2748,3 +2748,75 @@ else:
    미정렬 원소 하나 남았다? 그게 바로 최댓값. 실행 종료료
    
 </details>
+
+<details><summary>2025 0808 </summary>
+**문자열**
+
+코드체계 : 문자에 대응되는 숫자를 정함
+
+국가별 차이. 혼동 피하기 위해 ASCII 문자 인코딩 표준. 7-bit 인코딩으로 128문자 
+
+확장 아스키 Extended ASCII
+
+유니코드: 각 국가 자국 문자 표현 위한 코드 체계 만듦.>> 다국어 처리를 위해 표준인 유니코드 만듦(이모지도 유니코드 문자)
+
+유니코드 character set
+
+바이트 단위 저장 순서.
+
+바이트 단위 저장 순서가 정해지지 않는다면 잘못된 해석 가능성 존재.
+
+여러 바이트로 이루어진 데이터 저장방식을 Endian 이라고 함. 
+
+Big-endian 과 Little-endian
+
+유니코드 인코딩
+
+인코딩(encoding): 문자나 데이터를 컴퓨터가 이해하고 저장할 수 있도록 숫자(이진수)로 바꾸는 과정
+
+ex) "가" -> U+AC00 -> 0xEA B0 80 (UTF-8 기준. Unicode Transformation Format)
+
+컴퓨터 언어를 문자나 정보로 되돌리는 과정이 디코딩
+
+UTF : 유니코드 문자들을 컴퓨터에 저장 또는 전송할 때 사용하는 인코딩 방식
+
+각 방식은 하나의 문자를 몇 바이트로 표현하느냐의 차이
+8은 1Byte * 4 (8-bit ~ 32-bit) / 16은 2Byte * 2 (16-bit ~ 32-bit) / 32 4Byte (32-bit 고정)
+
+<img width="804" height="210" alt="image" src="https://github.com/user-attachments/assets/b5d23927-142e-4993-8540-d3cfa74b4187" />
+
+# 문자열
+분류 2가지 : length - controlled 문자열과 Delimited 문자열
+
+lc는 문자열의 길이 정보를 함께 저장해서 그 길이만큼 문자데이터를 읽는 방식. 
+d는 문자열 끝을 나타내는 특정 구분자 Delimiter 가 있어서 구분자가 나올 때까지 문자열로 인
+
+- 파이썬 str 클래스 구조
+str객체
+
+PyObject_HEAD
+
+length 문자열 길이
+
+hash 문자열 해시값. 딕셔너리 키
+
+interned 같은 문자열 관리 플래그
+
+kind 문자열 인코딩 크기
+
+compact (bool)
+
+data 문자열이 저장된 실제 메모리 주소 가리키는 포인터
+
+"Hello, World!"
+
+
+문자열 특징
+- 시퀀스 자료형 ( 인덱싱, 슬라이싱 사용 가능)
+- 문자열 클래스 메서드: replace() split() isalpah() find()
+- 요소 변경 불가. immutable
+
+
+</details>
+
+
