@@ -1,23 +1,6 @@
 # TIL-README-
 TIL (add a README file)
 ---
-<details><summary>SSAFY 생활</summary>
-
-9~11 라이브 강의
-11~12 개인 복습(학습 내용 나의 언어로 정리)
-12~13 함께 복습
-점심
-14~ 복습 및 온라인 실습 git.project 
-
-온라인 실습
-문제 들어가서 my gitlab 하고 주소 복사. 내 파일 bash 열어서 git clone 컨트롤 인서트 해서 로컬에 가져옴. 
-코드 작성하고 저장. 커밋 add -m 한 후에 push. 온라인 실습실 제출까지 꼭꼭
-
-
-시험은 온라인 교재에서 많이 출제됨 최소 3회독 이상
-
-</details>
-
 
 <details><summary>개발 첫 걸음_ 학습 안내</summary>
 
@@ -2931,4 +2914,22 @@ depth first search
 
 
 
+</details>
+<details><summary>20250819</summary>
+IM 형 시험
+A형 깊이있는 생각
+
+수업 잘 듣고, 알고리즘 더 풀자
+
+# 백트래킹
+
+후보해를 구성해나가다 더 이상 해가 없다고 판단되면 되돌아가 backtracking 다른 경로를 시도
+
+최적화와 결정 문제 >> N- queens / 미로 찾기 / 순열 조합 생성 / 부분집합 탐색 / 스도쿠 풀이 등
+
+
+백트래킹과 DFS 차이
+- 가지치기 유무, 조기 경로 차단, 경우의 수 많을 시 DFS 는 불가능, 백트래킹도 최악의 경우 불가능
+
+   
 </details>
