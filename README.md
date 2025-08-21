@@ -2960,8 +2960,31 @@ rear = (rear+1) mod n
 
 front = (front+1) mod n
 
+</details>
 
+<details><summary>20250821</summary>
 
+queue와 bfs 너비우선 탐색
+
+너비우선탐색 bfs와 깊이 우선 탐색 dfs 차이
+
+- 너비 우선 탐색
+은 한 줄씩 갈 수 있는 모든 길 가는 것
+
+가까운 것부터 넓게, 무가중치 그래프의 최단 거리를 보장
+
+(최소 이동 거리를 구하는 경우 // 출발점이 여러 개인 상황 동시확산)
+
+from collections import deque 
+하고 
+q = deque()
+q.popleft() 같은 거 쓰면 속도가 엄청 빨라짐
+
+- 깊이 우선 탐색
+
+깊이 우선탐색은 하나의 길을 끝까지 갔다가 다음 길 탐색
+
+경로의 존재 여부 확인, 전체 탐색 및 backtracking에 강함 
 
 
 
