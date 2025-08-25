@@ -3049,3 +3049,82 @@ c의 부모를 타고 타고
 언제까지? 부모가 없을 때까지 0일 때! 
 
 </details>
+
+
+<details><summary>20250825</summary>
+
+# 웹 Web
+web site : web page 가 모인 것. 사용자들에게정보나 서비스를 제공하는 공간
+
+HTML: 구조를 담당
+
+CSS: 디자인을 담당
+
+Javascript: 웹 언어
+
+
+# HTML
+HyperText Markup Language
+
+웹 페이지의 의미와 구조를 정의하는 언어
+
+HyperText: 웹 페이지를 다른 페이지로 연결하는 링크.
+
+참조를 통해 사용자가 한 문서에서 다른 문서로 즉시 접근할 수 있는 텍스트
+- 비선형성( 한 웹사이트에서 다른 웹 사이트로 이동 시 무조건 다음 사이트가 정해진 게 아니라, 어디로든 갈 수 있음)
+- 상호연결성
+- 사용자 주도적 탐색
+
+Markup Language: 태그 등을 이용하여 문서나 데이터의 구조를 명시하는 언어
+
+인간이 읽고 쓰기 쉬운 형태. 데이터의 구조와 의미를 정의하는 데 집중 (ex : HTML, Markdown)
+
+
+마크업 한다~ : 컴퓨터가 이해하도록 약속된 언어 HTML 로 구조 완성 후 웹 브라우저가 HTML 코드 해석하여 사용자에게 페이지 보여줌
+
+# HTML 구조
+<img width="683" height="279" alt="image" src="https://github.com/user-attachments/assets/45c646e9-3983-4496-815a-7c9b81bf1c8b" />
+F12누르면 보여짐
+
+1. <!DOCTYPE html> : 해당 문서가 html 문서임
+2. <html></html> 전체 페이지 콘텐츠  포함
+3. <title></title> 브라우저 탭 및 즐겨찾기 시 표시되는 제목
+4. <head></head> HTML 문서 관련 설명. 컴퓨터가 식별하는 메타데이터를 작성. 사용자에게 보이지 않음
+5. <body></body> HTML 문서 내용 나타냄. 페이지 표시되는 모든 콘텐츠. 한 문서에 하나의 body 요소
+
+
+보통 여는 태그와 닫는 태그로 이루어짐
+
+닫는 태그가 없다? 내용(콘텐츠)가 없다.
+
+태그 : <p></p> 텍스트 문단. <a></a> 닻 다른 페이지 이동 하이퍼링크 태그. <img></img> 이미지
+
+
+HTML은 텍스트 구조와 의미를 제공함. 의미에 맞는 태그를 사용하도록.
+
+리스트 태그 ol(번호 붙임) ul(동그라미) li
+수많은 태그들 잘 이용
+
+# CSS ( Cascading Style Sheet)
+웹페이지의 디자인과 레이아웃(배치)을 구성하는 언어
+
+style 속성
+속성 쓰는 자리는 태그 안에 
+<body>
+  <h1 style="color:blue; background-color: yellow;">Inline Style</h1>
+  <h2>Internal Style</h2>
+
+3가지 방법
+
+
+- 명시도(가중치)
+결과적으로 요소에 적용할 CSS 선언을 결정하기 위한 알고리즘
+
+계단식 >> 동일 가중치 선택자 라면 나중에 나온 것 적용
+
+선언순서가 중요함
+
+
+
+
+</details>
