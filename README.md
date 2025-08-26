@@ -3128,3 +3128,19 @@ style 속성
 
 
 </details>
+
+<details><summary>20250826</summary>
+box model 
+   display 속성: 박스의 화면 배치 방식
+   박스의 타입: block inline 두 가지
+
+
+
+
+
+
+
+
+
+
+</details>
