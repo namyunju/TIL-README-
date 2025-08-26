@@ -3137,10 +3137,24 @@ box model
 
 
 
+</details>
 
+<details><summary>AI코딩어시스턴트</summary>
 
+# PRD
+product requirement document 제품 요구사항 정의서
 
+요구 사항을 정리한 마크다운이 있는 폴더 . 코드로 터미널에 gemini 켜고 prd 기반으로 코드 작성해주세요~ 하면 해줌 
 
+주의 사항
+1. 요구 사항 명확하게 정의
+- 챗봇 (웹 사이트를 vue spring boot 를 활용해 구현하시오)
+2. 기술 스택 및 버전, 코딩 스타일 명시
+- bootstrap 5.3 버전을 사용해 구현하시오
+- vue3의 composition api 스타일로 구현하시오
+3. 복잡한 요구사항 한꺼번에 ㄴㄴ 작은 단위로 나눠 단계적으로 구성
+- 채팅페이지 단락 다른 단락 나눠서 각각
+<img width="914" height="494" alt="image" src="https://github.com/user-attachments/assets/3b30916c-0c24-4013-8c5c-16d6fb61fd36" />
 
-
+   
 </details>
